@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="flex items-center justify-center h-screen">
+  <div class="bg-white shadow-md rounded px-12 pt-10 pb-12 mb-8">
+    <form id="prediction-form" action="{{ url_for('predict') }}" method="POST">
+      <h2 class="text-2xl mb-4">Welcome to our Tweet Classifier!</h2>
+      <p class="mb-8">
+        Twitter has become an important communication channel in times of emergency.
+        The ubiquitousness of smartphones enables people to announce an emergency they are observing in real-time.
+        Because of this, more agencies are interested in programmatically monitoring Twitter (i.e. disaster relief organizations and news agencies).
+        But, its not always clear whether a persons words are actually announcing a disaster.
+        In this app, we use a machine learning model that predicts which Tweets are about real disasters and which ones are not.
+        For example: "The flood in Nigeria was terrible" is a real disaster Tweet, while "I am hungry and need food" is not. Try it out(Tweet in English)!
+      </p>
+    
+    <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="Tweet">
+        Tweet:
+      </label>
+      
+      <textarea
+        id="Tweet"
+        name="Tweet"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        rows="5"
+        style="max-height: 150px;"
+        required
+      ></textarea>
+    </div>
+
+    <input
+      type="submit"
+      value="Submit"
+      class="cursor-pointer w-full bg-black text-white font-bold mt-8 p-4 focus:outline-none focus:shadow-outline"
+    />
+  </form>
+</div>
+{% endblock %}
